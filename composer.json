@@ -1,7 +1,7 @@
 {
   "name": "roots/bedrock",
   "type": "project",
-  "license": "MIT",
+  "license": "NOLICENCED",
   "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
   "homepage": "https://roots.io/bedrock/",
   "authors": [

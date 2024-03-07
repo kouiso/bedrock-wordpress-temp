@@ -1,0 +1,28 @@
+version: '3'
+
+tasks:
+  clean:
+    desc: "プロジェクトに関連するDockerコンテナ、イメージ、ボリューム、ネットワークをクリーンアップ"
+    cmds:
+      - docker-compose down --rmi all --volumes --remove-orphans
+    silent: true
+
+  init:
+    desc: "プロジェクトのDocker設定を破棄して再構築"
+    cmds:
+      - task: clean
+      - docker-compose build
+    silent: true
+
+  up:
+    desc: "Dockerコンテナを起動"
+    cmds:
+      - docker-compose up -d
+    silent: true
+
+  reup:
+    desc: "プロジェクトのDocker設定を破棄して再構築し、Dockerコンテナを起動"
+    cmds:
+      - task: init
+      - task: up
+    silent: true
