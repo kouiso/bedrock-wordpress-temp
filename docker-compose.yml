@@ -17,7 +17,7 @@ services:
   wordpress:
     depends_on:
       - db
-    build: .
+    build: .  # Dockerfileがプロジェクトのルートディレクトリにある場合
     volumes:
       - ./:/var/www/html
     ports:
