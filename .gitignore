@@ -25,3 +25,11 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+
+# yarn
+.pnp.*
+
+
+/.yarn
+!/.yarn/releases/yarn-4.1.0.cjs
