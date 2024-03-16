@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",                           // コンパイルされたJavaScriptのECMAScriptのバージョン
+    "module": "commonjs",                      // モジュールシステム
+    "lib": ["dom", "es2015", "es2016", "es2017"], // ライブラリファイル
+    "allowJs": true,                           // JavaScriptファイルのコンパイルを許可
+    "checkJs": false,                          // .jsファイルでのエラーチェックを有効にする
+    "jsx": "react",                            // JSXのコードをどのように扱うか
+    "sourceMap": true,                         // ソースマップの生成を有効にする
+    "outDir": "./dist/js",                     // 出力ディレクトリのパス
+    "strict": true,                            // すべての厳格な型チェックオプションを有効にする
+    "noImplicitAny": true,                     // any型を暗黙的に使用することを許可しない
+    "moduleResolution": "node",                // モジュール解決戦略
+    "esModuleInterop": true,                   // CommonJSモジュールのデフォルトインポートを許可
+    "skipLibCheck": true,                      // 宣言ファイルの型チェックをスキップ
+    "forceConsistentCasingInFileNames": true   // 大文字と小文字の区別を強制
+  },
+  "include": [
+    "./wp-content/themes/ill/assets/ts/**/*" // TypeScriptファイルが含まれるディレクトリ
+  ],
+  "exclude": [
+    "node_modules",                            // node_modulesディレクトリを除外
+    "**/*.spec.ts"                             // テストファイルを除外
+  ]
+}

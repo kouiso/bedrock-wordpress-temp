@@ -1,0 +1,103 @@
+@charset "UTF-8";//____________________________$black
+$white:#fcfcfc;
+//メインカラー
+// $primary:#c80012;$primary
+$primary:#534741;
+//サブカラー
+$sub:#3c0012;
+$sub:#c80012;
+$gray:#555;
+$blue:#2E3180;
+$lightgray:#ddd;
+$lightgray2:#eee;
+//メニュー背景
+$menu-bg:rgba(0, 0, 0, .8);
+$menu-color:#fcfcfc;
+
+
+//loading背景
+// $loading-bg:#c80012;$loading-bg
+$loading-bg:　$primary;
+
+//グラデーション
+$grd:linear-gradient(145deg, rgba(200, 0, 18, .5), rgba(60, 0, 18, .5));//____________________________$msp
+$sp: "only screen and (max-width:480px)";
+$tab: "only screen and (min-width:481px) and (max-width:896px)";
+$pc: "only screen and (min-width:897px)";
+
+
+//____________________________
+//レスポンシブ
+//____________________________
+
+// min-widthの変数定義
+$breakpoint-min: ('sp': 'screen and (min-width: 0px)',
+  'tab': 'screen and (min-width: 481px)',
+  'pc': 'screen and (min-width: 767px)',
+) !default;//____________________________min-widthの変数定義$breakpoint-min
+
+// max-widthの変数定義
+$breakpoint-max: ('sp': 'screen and (max-width: 480px)',
+  'tab': 'screen and (max-width: 766px)',
+  'pc': 'screen and (max-width: 1280px)',
+) !default;
+
+// min-widthのmixin定義
+@mixin mq-min($breakpoint: sp) {
+  @media #{map-get($breakpoint-min, $breakpoint)}
+
+ {
+    @content;
+  }
+}
+
+// max-widthのmixin定義
+@mixin mq-max($breakpoint: sp) {
+  @media #{map-get($breakpoint-max, $breakpoint)}
+
+ {
+    @content;
+  }
+}
+
+@mixin content {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  @media #{$sp}
+
+ {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+//カレンダー
+$heading:#F4FCFA;
+$active:#C9FFDC;
+$full: #707070;
+@mixin sp-inner{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.active{
+  background-color: $active;
+}
+
+@mixin flex{
+  display: -webkit-flex;
+  display:    -moz-flex;
+  display:     -ms-flex;
+  display:      -o-flex;
+  display:         flex;
+}
+
+@mixin transition{
+  transition: .3s;
+}
+
+@mixin sans {
+  font-family: 'Noto Sans JP', sans-serif;
+}

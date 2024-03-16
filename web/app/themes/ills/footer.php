@@ -14,7 +14,7 @@
   <a href="/contact/"><button class="button__type1">お問い合わせはこちら</button></a>
 </section>
 <!--footer-->
-<footer class="footer">
+<footer class="l--footer">
   <small>Copyright &copy; 2020 Siyoukan All Rights Reserved.</small>
 </footer>
 <!--end footer-->

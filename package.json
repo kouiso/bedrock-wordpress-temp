@@ -1,25 +1,62 @@
 {
   "name": "betrock-wordpress-starter",
-  "packageManager": "yarn@4.1.0",
+  "license": "UNLICENSED",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@wordpress/eslint-plugin": "^17.10.0",
     "autoprefixer": "^10.4.18",
     "browser-sync": "^3.0.2",
     "cssnano": "^6.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-phpcs": "^3.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^10.0.0",
     "gulp-prettier": "^6.0.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-stylelint": "^13.0.0",
     "gulp-terser": "^2.1.0",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "sass": "^1.72.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-wordpress": "^17.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "yargs": "^17.7.2"
+  },
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch",
+    "build:scss": "gulp scssTask",
+    "build:ts": "gulp tsTask",
+    "lint:ts": "eslint \"wp-content/themes/ill/assets/ts/*.ts\"",
+    "lint:ts:fix": "eslint \"wp-content/themes/ill/assets/ts/*.ts\" --fix",
+    "lint:scss": "stylelint \"wp-content/themes/ill/assets/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"wp-content/themes/ill/assets/**/*.scss\" --fix",
+    "format": "prettier --check \"wp-content/themes/ill/assets/**/*.{ts,scss}\"",
+    "format:fix": "prettier --write \"wp-content/themes/ill/assets/**/*.{ts,scss}\""
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
   },
   "volta": {
     "node": "20.11.0",
-    "yarn": "4.1.0"
+    "yarn": "1.22.19"
   }
 }

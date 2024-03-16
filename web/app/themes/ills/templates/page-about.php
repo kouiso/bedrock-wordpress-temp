@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: About
+* Template Name: 志陽館について
 * @package WordPress
 * @Template Post Type: post, page,
 * @subpackage I'LL

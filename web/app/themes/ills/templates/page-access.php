@@ -21,20 +21,20 @@ get_header(); ?>
     <figure class="page__content--access--img js-trigger fade-type-scale"><img src="/wp-content/uploads/img05.jpg" alt="画像"></figure>
     <article class="page__content--access--box js-trigger fade-type-scale">
       <dl class="access__page--table">
-
+        
         <dt>住所</dt>
         <dd>〒333-0847 埼玉県川口市芝中田2-8-28</dd>
 
         <dt>電話</dt>
         <dd>048-263-2201</dd>
-
+        
         <dt>アクセス</dt>
         <dd>JR京浜東北線　蕨駅東口徒歩１０分</dd>
         <dt>定休日</dt>
         <dd>日曜日</dd>
       </dl>
     </article>
-
+    
 
   </div>
   <div class="gmap-wrap">
