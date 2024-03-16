@@ -1,0 +1,951 @@
+/*
+Theme Name: I'LL
+Description: Used to style the TinyMCE editor.
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Reset stylesheet
+ * 2.0 - Grid system
+ * 3.0 - Typography
+ * 4.0 - Elements
+ * 5.0 - Forms
+ * 6.0 - Main content
+ * 7.0 - Navigations
+ *   7.1 - Anchor
+ *   7.2 - Pagination
+ *   7.3 - Button
+ * 8.0 - Alignments
+ *   8.1 - Position
+ *   8.2 - Wordpress css
+ *   8.3 - Text align
+ * 9.0 - Clearfix
+ * 10.0 - MceContentBody
+ */
+
+/*------------------------------------------------------------------------------------
+/* 1.0 - Reset Stylesheet
+/*----------------------------------------------------------------------------------*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* Change colours to suit your needs */
+address,
+cite {
+  font-style: italic;
+}
+
+em {
+  font-weight: bold;
+}
+
+code,
+kbd,
+var,
+pre {
+  font-family: monospace, serif;
+}
+
+code {
+  padding: 2px 8px;
+  border: solid 1px #e2e5e8;
+  border-radius: 4px;
+}
+
+kbd {
+  padding: 2px 8px;
+  background-color: #000c15;
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+  color: #fff;
+}
+
+pre {
+  margin-bottom: 40px;
+  padding: 24px;
+  border: solid 1px #e2e5e8;
+  background-color: #f4f6fa;
+  white-space: pre-wrap;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+mark {
+  font-style: italic;
+  font-weight: bold;
+  color: #000;
+  background-color: #ff9;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: dotted 1px;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: #e2e5e8;
+}
+
+embed,
+iframe,
+img,
+object {
+  max-width: 100%;
+}
+
+.wp-embedded-content {
+  width: 100%;
+}
+
+img {
+  border: none;
+}
+
+:focus {
+  outline: 0px;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*------------------------------------------------------------------------------------
+/* 2.0 - Grid system
+/*----------------------------------------------------------------------------------*/
+.col6 {
+  float: left;
+  margin-left: 2.8%;
+  width: 48.6%;
+}
+
+.col4 {
+  float: left;
+  margin-left: 2.8%;
+  width: 31.4%;
+}
+
+.first {
+  margin-left: 0;
+}
+
+/*------------------------------------------------------------------------------------
+/* 3.0 - Typography
+/*----------------------------------------------------------------------------------*/
+body {
+  font-family: 'Hiragino Kaku Gothic ProN',-apple-system, 'BlinkMacSystemFont',  'メイリオ', Sans-Serif;
+  line-height: 1.6;
+  font-size: 16px;
+  font-size: 1.6rem;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #fcfcfc;
+}
+
+h1 {
+  font-size: 26px;
+  font-size: 2.6rem;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #333;
+}
+
+h3 {
+  font-size: 20px;
+  font-size: 2.0rem;
+  color: #333;
+}
+
+h4 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+h5 {
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+h6 {
+  font-size: 14px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+blockquote {
+  display: block;
+  margin-bottom: 40px;
+  padding: 16px;
+  border: solid 2px #e2e5e8;
+  quotes: "\201C""\2018";
+  font-size: 16px;
+  font-size: 1.6rem;
+  background-color: #f4f6fa;
+}
+
+blockquote:before {
+  line-height: 0.1;
+  content: open-quote;
+  vertical-align: -32px;
+  font-size: 60px;
+  font-size: 6.0rem;
+  color: #e2e5e8;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+
+small,
+.small {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+.big {
+  font-size: 24px;
+  font-size: 2.4rem;
+  color: #000c15;
+}
+
+.important-bold {
+  font-weight: bold;
+  color: #000c15;
+}
+
+.success-bold {
+  font-weight: bold;
+  color: #0468ea;
+}
+
+.danger-bold {
+  font-weight: bold;
+  color: #ff0029;
+}
+
+.important-under {
+  border-bottom: solid 3px #fded06;
+}
+
+.success-under {
+  border-bottom: solid 3px #0468ea;
+}
+
+.danger-under {
+  border-bottom: solid 3px #ff0029;
+}
+
+.important-marker {
+  background-color: #fded06;
+  padding: 4px 0;
+}
+
+/* http://fontawesome.ioe */
+.fa {
+  margin: 0 4px;
+  color: #9b8d77;
+}
+
+/*------------------------------------------------------------------------------------
+/* 4.0 - Elements
+/*----------------------------------------------------------------------------------*/
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+table caption {
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+table th {
+  padding: 8px;
+  border: solid 1px #e2e5e8;
+  vertical-align: middle;
+}
+
+table td {
+  padding: 8px 16px;
+  border: solid 1px #e2e5e8;
+}
+
+dt {
+  font-weight: bold;
+}
+
+/*------------------------------------------------------------------------------------
+/* 5.0 - Forms
+/*----------------------------------------------------------------------------------*/
+input {
+  vertical-align: middle;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  padding: 8px;
+  width: 100%;
+  border-radius: 1px;
+  border: solid 1px #e2e5e8;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="submit"] {
+  padding: 4px 32px;
+  border: none;
+  border-radius: 4px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  background-color: #9b8d77;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: #fff;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0, 3px);
+  transform: translate(0, 3px);
+}
+
+textarea {
+  font-size: 16px;
+  font-size: 1.6rem;
+  overflow: auto;
+  vertical-align: top;
+}
+
+select {
+  padding: 8px;
+  width: 100%;
+  background-color: #fff;
+  background-image: url(lib/images/select-arrow.png);
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  border: solid 1px #e2e5e8;
+  border-radius: 1px;
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Plug in contact form 7 */
+.wpcf7-list-item {
+  display: inline-block;
+}
+
+.wpcf7-submit {
+  display: block;
+  margin: 16px auto;
+}
+
+span.wpcf7-not-valid-tip {
+  margin: 8px 0;
+}
+
+div.wpcf7-response-output {
+  margin: 16px 0;
+  padding: 16px;
+}
+
+/*------------------------------------------------------------------------------------
+/* 6.0 - Main content
+/*----------------------------------------------------------------------------------*/
+body.mceContentBody {
+  font-size: 16px !important;
+  padding: 16px !important;
+  background: #fff !important;
+}
+
+body.mceContentBody a {
+  text-decoration: underline;
+}
+
+body.mceContentBody a:hover {
+  text-decoration: none;
+}
+
+body.mceContentBody h2 {
+  margin: 56px 0 32px 0;
+  padding: 8px 0 8px 16px;
+  border-left: 4px solid #3050a0;
+  background-color: #f0f0f0;
+}
+
+body.mceContentBody h3 {
+  margin: 48px 0 32px 0;
+  padding: 6px 0;
+  border-bottom: 2px solid #3050a0;
+}
+
+body.mceContentBody h4 {
+  margin: 48px 0 16px 0;
+}
+
+body.mceContentBody h5 {
+  margin: 40px 0 8px 0;
+}
+
+body.mceContentBody h6 {
+  margin: 32px 0 8px 0;
+}
+
+body.mceContentBody ol {
+  margin: 0px 0px 40px 24px;
+  list-style: decimal;
+  color: #333;
+}
+
+body.mceContentBody ul {
+  margin: 0px 0px 40px 24px;
+  list-style: disc;
+  color: #333;
+}
+
+body.mceContentBody li {
+  margin-bottom: 8px;
+}
+
+body.mceContentBody ul ul li {
+  list-style: circle;
+}
+
+body.mceContentBody p {
+  margin-bottom: 40px;
+}
+
+body.mceContentBody table {
+  margin-bottom: 40px;
+}
+
+body.mceContentBody th {
+  background-color: #fafafa;
+  font-weight: bold;
+}
+
+body.mceContentBody img {
+  max-width: 100%;
+  height: auto;
+}
+
+body.mceContentBody .btn {
+  margin-bottom: 40px;
+}
+
+.box-default {
+  margin: 0 0 40px 0;
+  padding: 24px;
+  border: 2px solid #e2e5e8;
+}
+
+.box-info {
+  margin: 0 0 40px 0;
+  padding: 24px;
+  background: #fafafa;
+  border: 2px solid #e2e5e8;
+}
+
+.box-default h2,
+.box-default h3,
+.box-default h4,
+.box-default h5,
+.box-default h6,
+.box-info h2,
+.box-info h3,
+.box-info h4,
+.box-info h5,
+.box-info h6 {
+  margin: 0px 0px 16px 0px;
+}
+
+.box-default p:last-child,
+.box-info p:last-child {
+  margin-bottom: 0;
+}
+
+.box-default li:last-child,
+.box-info li:last-child {
+  margin-bottom: 0;
+}
+
+.box-default ul,
+.box-info ul,
+.box-default ol,
+.box-info ol {
+  margin-bottom: 0;
+}
+
+/*------------------------------------------------------------------------------------
+/* 7.0 - Navigations
+/*----------------------------------------------------------------------------------*/
+/* ------ 7.1 - Anchor ------ */
+a {
+  text-decoration: none;
+  color: #303030;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+a:hover {
+  color: #b5b5b5;
+}
+
+/* ------7.2 - Pagination ------ */
+.screen-reader-text {
+  display: none;
+}
+
+.pagination {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.pagination a {
+  color: #b5b5b5;
+}
+
+.pagination a:hover {
+  background-color: #b5b5b5;
+  color: #fff;
+}
+
+.pagination .current {
+  background-color: #b5b5b5;
+  color: #fff;
+}
+
+.page-numbers {
+  display: inline-block;
+  margin-right: 8px;
+  min-width: 32px;
+  padding: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: solid 1px #ebedf0;
+  text-align: center;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+/* Paginated Posts <!--nextpage--> */
+.next-page {
+  padding-bottom: 32px;
+  text-align: center;
+}
+
+.next-page span {
+  border-radius: 4px;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+/* Post Navigation */
+.post-navigation {
+  margin: 32px 0;
+  border: solid 1px #ebedf0;
+}
+
+.nav-links {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.nav-previous,
+.nav-next {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-previous a,
+.nav-next a {
+  display: block;
+}
+
+.post-nav {
+  display: block;
+  padding-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+}
+
+.post-nav .fa {
+  color: #b5b5b5;
+}
+
+.nav-previous .fa {
+  margin: 0 4px 0 0;
+}
+
+.nav-next .fa {
+  margin: 0 0 0 4px
+}
+
+.nav-title {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+.nav-previous img {
+  float: left;
+  margin-right: 8px;
+  width: 90px;
+  height: 90px;
+}
+
+.nav-next img {
+  float: right;
+  margin-left: 8px;
+  width: 90px;
+  height: 90px;
+}
+
+/* ------7.3 - Button ------ */
+.btn {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  line-height: 1.5;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn a {
+  display: block;
+  padding: 8px 32px;
+  border-radius: 4px;
+  line-height: 1.5;
+  border-bottom: 3px solid rgba(0, 0, 0, .2);
+  background-color: #9b8d77;
+  color: #fff;
+  text-decoration: none !important;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-border {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #b5b5b5;
+  border-radius: 4px;
+  text-align: center;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.btn-border:hover {
+  color: #fff;
+  background-color: #f35b25;
+}
+
+.btn-sm {
+  width: 60%;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+.btn-mid {
+  width: 80%;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+.btn-lg {
+  width: 100%;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+
+/*------------------------------------------------------------------------------------
+/* 8.0 - Alignments
+/*----------------------------------------------------------------------------------*/
+/* ------ 8.1 - Position ------ */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+/* ------ 8.2 - Wordpress css ------ */
+.alignnone,
+img.alignnone {
+  display: block;
+  margin: 0 0 16px 0;
+}
+
+.aligncenter,
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft,
+img.alignleft {
+  display: inline;
+  float: left;
+  margin: 0 16px 16px 0;
+}
+
+.alignright,
+img.alignright {
+  display: inline;
+  float: right;
+  margin: 0 0 16px 16px;
+}
+
+.gallery img {
+  border: none !important;
+}
+
+/* ------ 8.3 - Text align ------ */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+/*------------------------------------------------------------------------------------
+/* 9.0 - Clearfix
+/*----------------------------------------------------------------------------------*/
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+}

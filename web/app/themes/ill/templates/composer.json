@@ -1,0 +1,12 @@
+{
+    "name": "clane01/templates",
+    "authors": [
+        {
+            "name": "CLANEinc",
+            "email": "info@clane.co.jp"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.42"
+    }
+}
