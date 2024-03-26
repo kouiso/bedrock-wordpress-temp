@@ -1,22 +1,20 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const typescript = require('gulp-typescript');
+const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const rename = require('gulp-rename');
+const ts = require('gulp-typescript');
 const terser = require('gulp-terser');
-const eslint = require('gulp-eslint').default;
-const stylelint = require('gulp-stylelint');
-const prettier = require('gulp-prettier');
-const phpcs = require('gulp-phpcs');
-const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync').create();
 
-const themesPath = './web/app/themes/*/';
+const argv = require('yargs').argv;
+
+const themesPath = './wp-content/themes/ill/';
 const paths = {
   scss: themesPath + 'assets/scss/**/*.scss',
-  ts: themesPath + 'assets/ts/**/*.ts',
-  php: themesPath + '**/*.php'
+  ts: themesPath + 'assets/ts/**/*.ts', // TypeScriptファイルのパスを追加
 };
 
 function scssTask() {
@@ -24,57 +22,53 @@ function scssTask() {
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(dest(themesPath + 'assets/css'));
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest(themesPath + 'dist/css'))
+
 }
 
 function tsTask() {
   return src(paths.ts)
     .pipe(plumber())
-    .pipe(typescript({ noImplicitAny: true, outFile: 'script.js' }))
-    .pipe(terser())
-    .pipe(dest(themesPath + 'assets/js'));
-}
-
-function lintStyles() {
-  return src(paths.scss)
-    .pipe(stylelint({
-      failAfterError: true,
-      reportOutputDir: 'reports/lint',
-      reporters: [
-        {formatter: 'verbose', console: true},
-        {formatter: 'json', save: 'report.json'},
-      ],
-      debug: true
-    }));
-}
-
-function lintScripts() {
-  return src(paths.ts)
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
-
-function formatPHP() {
-  return src(paths.php)
-    .pipe(phpcs({
-      bin: 'vendor/bin/phpcs',
-      standard: 'WordPress',
-      warningSeverity: 0
+    .pipe(ts({
+      noImplicitAny: true,
+      outFile: 'main.min.js'
     }))
-    .pipe(phpcs.reporter('log'))
-    .pipe(phpcs.reporter('fail', {failOnFirst: false}));
+    .pipe(terser()) // JavaScriptファイルを圧縮
+    .pipe(dest(themesPath + 'dist/js'))
+
 }
 
 function watchTask() {
   browserSync.init({
-    proxy: 'your-local-dev-site.com'
+    proxy: "yourlocal.dev",
+    open: true,
+    notify: false,
+    reloadOnRestart: true // これは常にtrueでも構いません
   });
-  watch([paths.scss, paths.ts, paths.php], 
-    parallel(scssTask, tsTask, lintStyles, lintScripts, formatPHP)).on('change', browserSync.reload);
+
+  if (argv.reload) {
+    // --reloadオプションがある場合のみ、ファイルの変更を監視してリロードする
+    watch(paths.scss, series(scssTask, function(done) {
+      browserSync.reload();
+      done();
+    }));
+    watch(paths.ts, series(tsTask, function(done) {
+      browserSync.reload();
+      done();
+    }));
+    watch(themesPath + '**/*.php').on('change', browserSync.reload);
+  } else {
+    // --reloadオプションがない場合は、通常通りタスクを実行するがリロードはしない
+    watch(paths.scss, scssTask);
+    watch(paths.ts, tsTask);
+  }
 }
 
-exports.default = series(
-  parallel(scssTask, tsTask, lintStyles, lintScripts, formatPHP),
-  watchTask
-);
+// 一回だけscssTaskとtsTaskを実行するデフォルトタスク
+exports.default = series(parallel(scssTask, tsTask), watchTask);
+
+// ファイルの変更を監視するタスク
+exports.watch = watchTask;
+exports.scssTask = scssTask;
+exports.tsTask = tsTask;

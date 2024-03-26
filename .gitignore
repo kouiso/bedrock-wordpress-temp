@@ -33,3 +33,6 @@ wp-cli.local.yml
 
 /.yarn
 !/.yarn/releases/yarn-4.1.0.cjs
+
+/dist
+node_modules
