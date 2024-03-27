@@ -12,16 +12,16 @@ services:
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
-      - '3308:3306' # ホストのポート3308をコンテナのポート3306にマッピング
+      - "3308:3306"  # ホストのポート3308をコンテナのポート3306にマッピング
 
   wordpress:
     depends_on:
       - db
-    build: . # Dockerfileがプロジェクトのルートディレクトリにある場合
+    build: .  # Dockerfileがプロジェクトのルートディレクトリにある場合
     volumes:
       - ./:/var/www/html
     ports:
-      - '8000:80'
+      - "8000:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
