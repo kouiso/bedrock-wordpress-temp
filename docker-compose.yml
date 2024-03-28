@@ -12,7 +12,7 @@ services:
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "3308:3306"  # ホストのポート3308をコンテナのポート3306にマッピング
+      - "3310:3306"  # ホストのポート3308をコンテナのポート3306にマッピング
 
   wordpress:
     depends_on:

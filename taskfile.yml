@@ -2,26 +2,35 @@ version: '3'
 
 tasks:
   clean:
-    desc: "プロジェクトに関連するDockerコンテナ、イメージ、ボリューム、ネットワークをクリーンアップ"
+    desc: 'プロジェクトに関連するDockerコンテナ、イメージ、ボリューム、ネットワークをクリーンアップし、vendorとnode_modulesがあれば削除'
     cmds:
       - docker-compose down --rmi all --volumes --remove-orphans
+      - |
+        if [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+          sudo rm -rf vendor
+          sudo rm -rf node_modules
+        elif [ "$(expr substr $(uname -s) 1 9)" = "CYGWIN_NT" ] || [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" = "MINGW64_NT" ]; then
+          cmd /c "if exist vendor (rmdir /s /q vendor)"
+          cmd /c "if exist node_modules (rmdir /s /q node_modules)"
+        fi
     silent: true
 
   init:
-    desc: "プロジェクトのDocker設定を破棄して再構築"
+    desc: 'プロジェクトのDocker設定を破棄して再構築'
     cmds:
       - task: clean
+      - yarn install
       - docker-compose build
     silent: true
 
   up:
-    desc: "Dockerコンテナを起動"
+    desc: 'Dockerコンテナを起動'
     cmds:
       - docker-compose up -d
     silent: true
 
   reup:
-    desc: "プロジェクトのDocker設定を破棄して再構築し、Dockerコンテナを起動"
+    desc: 'プロジェクトのDocker設定を破棄して再構築し、Dockerコンテナを起動'
     cmds:
       - task: init
       - task: up

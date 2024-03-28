@@ -38,12 +38,12 @@
     "watch": "gulp watch",
     "build:scss": "gulp scssTask",
     "build:ts": "gulp tsTask",
-    "lint:ts": "eslint \"wp-content/themes/ill/assets/ts/*.ts\"",
-    "lint:ts:fix": "eslint \"wp-content/themes/ill/assets/ts/*.ts\" --fix",
-    "lint:scss": "stylelint \"wp-content/themes/ill/assets/**/*.scss\"",
-    "lint:scss:fix": "stylelint \"wp-content/themes/ill/assets/**/*.scss\" --fix",
-    "format": "prettier --check \"wp-content/themes/ill/assets/**/*.{ts,scss}\"",
-    "format:fix": "prettier --write \"wp-content/themes/ill/assets/**/*.{ts,scss}\""
+    "lint:ts": "eslint \"wp-content/themes/*/assets/ts/*.ts\"",
+    "lint:ts:fix": "eslint \"wp-content/themes/*/assets/ts/*.ts\" --fix",
+    "lint:scss": "stylelint \"wp-content/themes/*/assets/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"wp-content/themes/*/assets/**/*.scss\" --fix",
+    "format": "prettier --check \"wp-content/themes/*/assets/**/*.{ts,scss}\"",
+    "format:fix": "prettier --write \"wp-content/themes/*/assets/**/*.{ts,scss}\""
   },
   "lint-staged": {
     "*.js": [
