@@ -15,6 +15,19 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip pdo pdo_mysql mysqli \
     && rm -rf /var/lib/apt/lists/*  # キャッシュを削除してイメージサイズを減らす
 
+# XDebugをインストール
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# XDebugの設定を追加
+RUN { \
+        echo "zend_extension=xdebug.so"; \
+        echo "xdebug.mode=debug"; \
+        echo "xdebug.start_with_request=yes"; \
+        echo "xdebug.client_host=host.docker.internal"; \
+        echo "xdebug.client_port=9003"; \
+    } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # Composerのインストール
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
