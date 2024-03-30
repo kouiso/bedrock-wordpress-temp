@@ -24,28 +24,28 @@
   <header class="l--header">
     <div class="inner flex">
       <a href="/" class="logo">
-<!--        <a href="/"><img src="/wp-content/uploads/logo.png" alt="ロゴ"></a>-->
+<!--        <a href="/"><img src="/wp-content/uploads/logo.png" alt="[LogoAlt]"></a>-->
       </a>
       <button type="button" id="js-buttonHamburger" class="l--header__button p--hamburger" aria-controls="global-nav" aria-expanded="false">
         <span class="p--hamburger__line">
           <span class="u--visuallyHidden">
-            メニューを開閉する
+            [MenuToggle]
           </span>
         </span>
       </button>
       <nav class="gnav">
         <div class="gnav__wrap">
           <ul class="gnav__menu">
-            <li class="gnav__menu__item"><a href="/">HOME</a></li>
-            <li class="gnav__menu__item"><a href="/about/">志陽館について</a></li>
-<!--            <li class="gnav__menu__item"><a href="/menu/">料金メニュー</a></li>-->
-            <li class="gnav__menu__item"><a href="/info/">武道って？</a></li>
-            <li class="gnav__menu__item"><a href="/access/">アクセス</a></li>
-            <li class="gnav__menu__item"><a href="/join/">ご入会の案内</a></li>
-            <li class="gnav__menu__item"><a href="/news/">お知らせ</a></li>
-<!-- 			  <li class="gnav__menu__item"><a href="/calendar/">カレンダー</a></li> -->
+            <li class="gnav__menu__item"><a href="/">[Home]</a></li>
+            <li class="gnav__menu__item"><a href="/about/">[AboutUs]</a></li>
+<!--            <li class="gnav__menu__item"><a href="/menu/">[Menu]</a></li>-->
+            <li class="gnav__menu__item"><a href="/info/">[MartialArts]</a></li>
+            <li class="gnav__menu__item"><a href="/access/">[Access]</a></li>
+            <li class="gnav__menu__item"><a href="/join/">[JoinUs]</a></li>
+            <li class="gnav__menu__item"><a href="/news/">[News]</a></li>
+<!-- 			  <li class="gnav__menu__item"><a href="/calendar/">[Calendar]</a></li> -->
 
-            <li class="gnav__menu__item"><a href="/contact/">お問い合わせ</a></li>
+            <li class="gnav__menu__item"><a href="/contact/">[Contact]</a></li>
           </ul>
         </div>
         <!--gnav-wrap-->
@@ -53,5 +53,3 @@
     </div>
 
   </header>
-  
- 
