@@ -1,14 +1,17 @@
 # モダンなWordPress template
 
 bedrock をフォークしてカスタマイズしたものです。[bedrockはこちら](https://github.com/roots/bedrock)
+bedrockとは通常のwordpressではセキュリティで欠陥がある個所を補ったものです。またcomposerを使ってプラグインを管理できる構成になっています。
 
 ## 環境構築手順
 
 1. brewをinstall
    [Brewのinstall](https://brew.sh/ja/)
+2. Docker Desktopをinstall
+   [Docker Desktop](https://brew.sh/ja/)
 
 Windowsの場合にはscoopを使用
-[scoopのinstall](https://scoop.sh/)
+[scoopのinstall](https://docs.docker.com/desktop/install/windows-install/)
 
 2. voltaを設定する
 
