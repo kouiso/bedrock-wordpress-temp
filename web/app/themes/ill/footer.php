@@ -6,18 +6,41 @@
 * @since I'LL 1.0
 */
 ?>
-<section class="footer l__contact center" style="background-image: url(/wp-content/uploads/footer.jpg);">
-  <h2 class="footer__txt1 footer__txt">[FooterTitle]</h2>
-  <p class="footer__txt2 footer__txt">[FooterDescription1]</p>
-  <p class="footer__txt3 footer__txt">[FooterDescription2]</p>
-  <p class="footer__txt4 footer__txt">[FooterDescription3]<br class="br">[FooterDescription4]</p>
-  <a href="/contact/"><button class="button__type1">[ContactButtonText]</button></a>
-</section>
-<!--footer-->
+
 <footer class="footer">
-  <small>[CopyrightText]</small>
+  <div class="footer__group">
+    <div class="footer__property">
+      <div class="footer__corporate-name">RITMO</div>
+      <div class="footer__corporate-address">
+        〒300-1283
+        <br />
+        茨城県牛久市奥原町3693-2
+      </div>
+      <div class="footer__links">
+        <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>" class="footer__link">
+          <span class="footer__button-text">プライバシーポリシー</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer__contact-link-wrap">
+      <a href="<?php echo esc_url(home_url('/contact')); ?>">
+        <button class="footer__contact-link">
+          <div class="footer__contact-link-flex">
+            <span class="footer__contact-link-text">
+              お問い合わせ
+              <br />
+              <span class="footer__contact-link-subtext">※ご相談・お見積り・ご提案は無料です。</span>
+            </span>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/footer-arrow.png" alt="矢印アイコン" width="51" height="16" class="footer__contact-link-arrow" />
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="footer__copyright">
+    &copy; <?php echo date('Y'); ?> RITMO. All rights reserved.
+  </div>
 </footer>
-<!--end footer-->
 
 <?php wp_footer(); ?>
 </body>
