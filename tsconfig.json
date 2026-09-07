@@ -16,7 +16,7 @@
     "forceConsistentCasingInFileNames": true   // 大文字と小文字の区別を強制
   },
   "include": [
-    "./wp-content/themes/ill/assets/ts/**/*" // TypeScriptファイルが含まれるディレクトリ
+    "./wp-content/themes/ill/asset/ts/**/*" // TypeScriptファイルが含まれるディレクトリ
   ],
   "exclude": [
     "node_modules",                            // node_modulesディレクトリを除外

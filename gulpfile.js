@@ -13,8 +13,8 @@ const argv = require('yargs').argv;
 
 const themesPath = './wp-content/themes/ill/';
 const paths = {
-  scss: themesPath + 'assets/scss/**/*.scss',
-  ts: themesPath + 'assets/ts/**/*.ts', // TypeScriptファイルのパスを追加
+  scss: themesPath + 'asset/scss/**/*.scss',
+  ts: themesPath + 'asset/ts/**/*.ts', // TypeScriptファイルのパスを追加
 };
 
 function scssTask() {

@@ -4,71 +4,71 @@ $main-color: #073061;
 $main-size: 16px;
 
 //____________________________
-// フォントファミリー「 Noto_Sans_JP 」を登録
+// フォントファミリー「 noto-sans-jp 」を登録
 //____________________________
 @font-face {
   font-family: 'Noto Sans JP';
   font-weight: 700;
-  src: url('../fonts/Noto_Sans_JP/NotoSansJP-Bold.ttf') format('truetype');
+  src: url('../font/noto-sans-jp/noto-sans-jp-bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans JP';
   font-weight: 600;
-  src: url('../fonts/Noto_Sans_JP/NotoSansJP-SemiBold.ttf') format('truetype');
+  src: url('../font/noto-sans-jp/noto-sans-jp-semi-bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans JP';
   font-weight: 500;
-  src: url('../fonts/Noto_Sans_JP/NotoSansJP-Medium.ttf') format('truetype');
+  src: url('../font/noto-sans-jp/noto-sans-jp-medium.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans JP';
   font-weight: 400;
-  src: url('../fonts/Noto_Sans_JP/NotoSansJP-Regular.ttf') format('truetype');
+  src: url('../font/noto-sans-jp/noto-sans-jp-regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Noto Sans JP';
   font-weight: 300;
-  src: url('../fonts/Noto_Sans_JP/NotoSansJP-Light.ttf') format('truetype');
+  src: url('../font/noto-sans-jp/noto-sans-jp-light.ttf') format('truetype');
 }
 
 $sans: 'Noto Sans JP', sans-serif;
 
 //____________________________
-// フォントファミリー「 Noto_Serif_JP 」を登録
+// フォントファミリー「 noto-serif-jp 」を登録
 //____________________________
 @font-face {
   font-family: 'Noto Serif JP';
   font-weight: 700;
-  src: url('../fonts/Noto_Serif_JP/NotoSerifJP-Bold.otf') format('opentype');
+  src: url('../font/noto-serif-jp/noto-serif-jp-bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Noto Serif JP';
   font-weight: 600;
-  src: url('../fonts/Noto_Serif_JP/NotoSerifJP-SemiBold.otf') format('opentype');
+  src: url('../font/noto-serif-jp/noto-serif-jp-semi-bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Noto Serif JP';
   font-weight: 500;
-  src: url('../fonts/Noto_Serif_JP/NotoSerifJP-Medium.otf') format('opentype');
+  src: url('../font/noto-serif-jp/noto-serif-jp-medium.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Noto Serif JP';
   font-weight: 400;
-  src: url('../fonts/Noto_Serif_JP/NotoSerifJP-Regular.otf') format('opentype');
+  src: url('../font/noto-serif-jp/noto-serif-jp-regular.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Noto Serif JP';
   font-weight: 300;
-  src: url('../fonts/Noto_Serif_JP/NotoSerifJP-Light.otf') format('opentype');
+  src: url('../font/noto-serif-jp/noto-serif-jp-light.otf') format('opentype');
 }
 $serif: 'Noto Serif JP', serif;
 
@@ -78,7 +78,7 @@ $serif: 'Noto Serif JP', serif;
 @font-face {
   font-family: 'Yeseva One';
   font-weight: 400;
-  src: url('../fonts/Yeseva_One/YesevaOne-Regular.ttf') format('truetype');
+  src: url('../font/yeseva-one/yeseva-one-regular.ttf') format('truetype');
 }
 
 $yeseva: 'Yeseva One', cursive;
