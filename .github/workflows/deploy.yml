@@ -1,0 +1,56 @@
+name: Deploy
+
+# サーバへのデプロイ。vars.WP_DEPLOY_ENABLED = "true" の時だけ実行する。
+#
+# 必要 secrets:
+#   WP_DEPLOY_SSH_HOST / WP_DEPLOY_SSH_USER / WP_DEPLOY_SSH_KEY
+#   WP_DEPLOY_SSH_PORT / WP_DEPLOY_PATH
+# 任意 vars:
+#   WP_SYNC_CMD  デプロイ後の WP-CLI 実行コマンドを上書きする。
+#                省略時は `bash bin/deploy-sync.sh`。
+#                例: docker compose exec -T wordpress bash /var/www/html/bin/deploy-sync.sh
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ vars.WP_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build deploy archive
+        run: |
+          tar --exclude='./.git' --exclude='./node_modules' --exclude='./vendor' \
+              --exclude='./deploy.tar.gz' -czf deploy.tar.gz .
+
+      - name: Upload archive
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.WP_DEPLOY_SSH_HOST }}
+          username: ${{ secrets.WP_DEPLOY_SSH_USER }}
+          key: ${{ secrets.WP_DEPLOY_SSH_KEY }}
+          port: ${{ secrets.WP_DEPLOY_SSH_PORT || 22 }}
+          source: deploy.tar.gz
+          target: ${{ secrets.WP_DEPLOY_PATH }}
+
+      - name: Extract and run WP setup
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.WP_DEPLOY_SSH_HOST }}
+          username: ${{ secrets.WP_DEPLOY_SSH_USER }}
+          key: ${{ secrets.WP_DEPLOY_SSH_KEY }}
+          port: ${{ secrets.WP_DEPLOY_SSH_PORT || 22 }}
+          script: |
+            set -e
+            cd "${{ secrets.WP_DEPLOY_PATH }}"
+            tar -xzf deploy.tar.gz
+            rm deploy.tar.gz
+            if [ -n "${{ vars.WP_SYNC_CMD }}" ]; then
+              eval "${{ vars.WP_SYNC_CMD }}"
+            else
+              bash bin/deploy-sync.sh
+            fi

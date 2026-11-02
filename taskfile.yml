@@ -35,3 +35,8 @@ tasks:
       - task: init
       - task: up
     silent: true
+
+  deploy:sync:
+    desc: 'DBマイグレーションと固定ページ同期を実行（WordPressコンテナ内のWP-CLI）'
+    cmds:
+      - docker-compose exec -T wordpress bash /var/www/html/bin/deploy-sync.sh

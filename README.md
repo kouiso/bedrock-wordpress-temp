@@ -56,6 +56,15 @@ task reup
 
 3. ブラウザを開き `http://localhost:3000` にアクセスして、プロジェクトが正しく表示されることを確認します。
 
+## デプロイ同期（DBマイグレーション＋固定ページ）
+
+`deploy/pages.json` を正として、デプロイ後に WP-CLI で DB の状態をコードに揃える仕組みがあります。
+
+- 固定ページの作成・更新・削除（ゴミ箱）は `bin/sync-pages.php` が `deploy/pages.json` の定義から行います。手動作成のページは消えません。
+- DBマイグレーションは `deploy/migrations/NNNN_名前.php` を `bin/run-migrations.php` が未適用分だけ実行します。
+- まとめて実行するには `bash bin/deploy-sync.sh`。GitHub Actions の `deploy.yml` は `vars.WP_DEPLOY_ENABLED=true` の時だけ走ります。
+- 詳細は `deploy/README.md` を参照してください。
+
 ## エラーで困ったときは？
 
 以下のコマンドを実行するとこのプロジェクトに関するdockerのリソースのみが削除され、再構築されます。
