@@ -1,0 +1,22 @@
+<?php
+/**
+ * マイグレーションのひな形（.example なので自動実行されない）。
+ *
+ * 使い方:
+ *   - このファイルを `NNNN_説明.php`（例: 0002_add_example_table.php）にコピーして
+ *     deploy/migrations/ に置くと、未適用のものから順に実行される。
+ *   - 成功したら true を返す。失敗時は例外を投げるか false を返す（そこで停止する）。
+ *   - 使えるもの: dbDelta() / $wpdb / その他の WordPress API。
+ */
+
+global $wpdb;
+require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+dbDelta("CREATE TABLE {$wpdb->prefix}example_table (
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    name varchar(191) NOT NULL,
+    created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY  (id)
+) {$wpdb->get_charset_collate()};");
+
+return true;

@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "sample-page",
+    "title": "サンプル固定ページ",
+    "status": "publish",
+    "template": "",
+    "content_file": "sample-page.html"
+  }
+]
